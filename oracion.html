@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oración</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Fondo blanco */
+            color: black; /* Texto en color negro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background-color: #f5f5f5; /* Fondo ligeramente gris */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 1.5rem;
+            color: black; /* Título en negro */
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+        input[type="date"] {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background-color: #e0e0e0;
+            color: black;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            font-size: 1rem;
+            color: black;
+            margin-top: 20px;
+        }
+        .credits {
+            font-size: 0.8rem;
+            color: #a1a1a1; /* Gris para los créditos */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oración 🙏🏼</h1>
+        <label for="date">Selecciona una fecha:</label>
+        <input type="date" id="date" />
+        <button onclick="getTeacher()">Consultar</button> <!-- Botón de consulta -->
+        <button onclick="window.location.href = 'index2.html';">Regresar</button> <!-- Botón de regresar -->
+        <p id="result"></p>
+    </div>
+
+    <div class="credits">
+        <p>Development by: E.Montenegro</p>
+    </div>
+
+    <script>
+        // Horario de maestros por fecha
+        const schedule = {
+            "2025-01-20": "Fabiola Herrera",
+            "2025-01-21": "Alejandra Barillas",
+            "2025-01-22": "Elmer Montenegro",
+            "2025-01-23": "Diego Arango",
+            "2025-01-24": "Karla Rivera",
+            "2025-01-27": "Mayra Gómez",
+            "2025-01-28": "Aralí Say",
+            "2025-01-29": "Fabiola Herrera",
+            "2025-01-30": "Alejandra Barillas",
+            "2025-01-31": "Elmer Montenegro",
+            "2025-02-03": "Diego Arango",
+            "2025-02-04": "Karla Rivera",
+            "2025-02-05": "Mayra Gómez",
+            "2025-02-06": "Aralí Say",
+            "2025-02-07": "Elmer Montenegro",
+            "2025-02-10": "Fabiola Herrera",
+            "2025-02-11": "Alejandra Barillas",
+            "2025-02-12": "Elmer Montenegro",
+            "2025-02-13": "Diego Arango",
+            "2025-02-14": "Karla Rivera",
+            "2025-02-17": "Mayra Gómez",
+            "2025-02-18": "Aralí Say",
+            "2025-02-19": "Fabiola Herrera",
+            "2025-02-20": "Alejandra Barillas",
+            "2025-02-21": "Elmer Montenegro",
+            "2025-02-24": "Diego Arango",
+            "2025-02-25": "Karla Rivera",
+            "2025-02-26": "Mayra Gómez",
+            "2025-02-27": "Aralí Say",
+            "2025-02-28": "Elmer Montenegro",
+            "2025-03-03": "Fabiola Herrera",
+            "2025-03-04": "Alejandra Barillas",
+            "2025-03-05": "Elmer Montenegro",
+            "2025-03-06": "Diego Arango",
+            "2025-03-07": "Karla Rivera",
+            "2025-03-10": "Mayra Gómez",
+            "2025-03-11": "Aralí Say",
+            "2025-03-12": "Fabiola Herrera",
+            "2025-03-13": "Alejandra Barillas",
+            "2025-03-14": "Elmer Montenegro",
+            "2025-03-17": "Diego Arango",
+            "2025-03-18": "Karla Rivera",
+            "2025-03-19": "Mayra Gómez",
+            "2025-03-20": "Aralí Say",
+            "2025-03-21": "Elmer Montenegro",
+            "2025-03-24": "Fabiola Herrera",
+            "2025-03-25": "Alejandra Barillas"
+        };
+
+        // Función para consultar el nombre del docente según la fecha seleccionada
+        function getTeacher() {
+            const date = document.getElementById("date").value;
+            const teacher = schedule[date];
+            const resultElement = document.getElementById("result");
+
+            if (teacher) {
+                resultElement.innerHTML = `El docente encargado es: ${teacher}`;
+            } else {
+                resultElement.innerHTML = "No hay información para esta fecha.";
+            }
+        }
+    </script>
+</body>
+</html>
