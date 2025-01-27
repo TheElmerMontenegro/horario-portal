@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario Nivel Básico</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #0a1a2f; /* Fondo azul oscuro */
+        color: #b0e0ff; /* Color de texto azul claro */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    .container {
+        background-color: #112b45; /* Fondo azul oscuro para el contenedor */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+    }
+    h1 {
+        font-size: 1.5rem;
+        color: #b0e0ff; /* Azul claro para el título */
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        color: #8dbbdc; /* Azul medio para los labels */
+    }
+    input[type="date"] {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #5f9dcf; /* Borde azul claro */
+        border-radius: 4px;
+        background-color: #173753; /* Fondo azul oscuro para el input */
+        color: #b0e0ff; /* Azul claro para el texto del input */
+        margin-bottom: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #2978b5; /* Botón azul brillante */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    button:hover {
+        background-color: #195a86; /* Azul más oscuro al pasar el mouse */
+    }
+    p {
+        font-size: 1rem;
+        color: #b0e0ff; /* Azul claro para los resultados */
+        margin-top: 20px;
+    }
+    .credits {
+        font-size: 0.8rem;
+        color: #8dbbdc; /* Azul medio para los créditos */
+        margin-top: 20px;
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Consulte a quién le corresponde cuidar la puerta Jornada Matutina Básicos</h1>
+        <label for="date">Selecciona una fecha:</label>
+        <input type="date" id="date" />
+        <button onclick="getTeacher()">Consultar</button>
+        <button onclick="window.location.href = 'index4.html';">Regresar</button> <!-- Nuevo botón -->
+        <p id="result"></p>
+    </div>
+    
+    <div class="credits">
+        <p>Development by: E.Montenegro</p>
+    </div>
+
+    <script>
+        // Horario de maestros por fecha
+        const schedule = {
+            
+            "2025-01-27": "Mayra Gómez",
+            "2025-01-28": "Diego Arango",
+            "2025-01-29": "Norman Almazar",
+            "2025-01-30": "Elmer Montenegro",
+            "2025-01-31": "Diego Arango",
+            "2025-02-03": "Karla Rivera",
+            "2025-02-04": "Elmer Montenegro",
+            "2025-02-05": "Mayra Gómez",
+            "2025-02-06": "Diego Arango",
+            "2025-02-07": "Norman Almazar",
+            "2025-02-10": "Norman Almazar",
+            "2025-02-11": "Mayra Gómez",
+            "2025-02-12": "Elmer Montenegro",
+            "2025-02-13": "Diego Arango",
+            "2025-02-14": "Karla Rivera",
+            "2025-02-17": "Mayra Gómez",
+            "2025-02-18": "Diego Arango",
+            "2025-02-19": "Norman Almazar",
+            "2025-02-20": "Elmer Montenegro",
+            "2025-02-21": "Diego Arango",
+            "2025-02-24": "Karla Rivera",
+            "2025-02-25": "Elmer Montenegro",
+            "2025-02-26": "Mayra Gómez",
+            "2025-02-27": "Diego Arango",
+            "2025-02-28": "Norman Almazar",
+            "2025-03-03": "No actualizado",
+            "2025-03-04": "No actualizado",
+            "2025-03-05": "No actualizado",
+            "2025-03-06": "No actualizado",
+            "2025-03-07": "No actualizado",
+            "2025-03-10": "No actualizado",
+            "2025-03-11": "No actualizado",
+            "2025-03-12": "No actualizado",
+            "2025-03-13": "No actualizado",
+            "2025-03-14": "No actualizado",
+            "2025-03-17": "No actualizado",
+            "2025-03-18": "No actualizado",
+            "2025-03-19": "No actualizado",
+            "2025-03-20": "No actualizado",
+            "2025-03-21": "No actualizado",
+            "2025-03-24": "No actualizado",
+            "2025-03-25": "No actualizado",
+            "2025-03-26": "No actualizado",
+            "2025-03-27": "No actualizado",
+            "2025-03-28": "No actualizado",
+            "2025-03-31": "No actualizado",
+            "2025-04-01": "No actualizado",
+            "2025-04-02": "No actualizado",
+            "2025-04-03": "No actualizado",
+            "2025-04-04": "No actualizado"
+        };
+
+        function getTeacher() {
+            const dateInput = document.getElementById("date").value;
+            const resultElement = document.getElementById("result");
+
+            if (dateInput && schedule[dateInput]) {
+                resultElement.textContent = `El maestro a cargo es: ${schedule[dateInput]}`;
+            } else {
+                resultElement.textContent = "No hay maestro asignado para esta fecha.";
+            }
+        }
+    </script>
+</body>
+</html>
