@@ -22,6 +22,24 @@
             color: #ecf0f1;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espacio entre el texto y la llave */
+        }
+
+        /* Animación de la llave */
+        .key {
+            font-size: 40px;
+            animation: rotateKey 2s infinite linear;
+        }
+
+        @keyframes rotateKey {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .button-container {
@@ -99,6 +117,10 @@
                 font-size: 24px; /* Reducir tamaño de fuente en móviles */
             }
 
+            .key {
+                font-size: 30px; /* Reducir el tamaño de la llave en móviles */
+            }
+
             .button {
                 font-size: 16px; /* Reducir tamaño de los botones */
                 padding: 12px 24px;
@@ -118,7 +140,7 @@
     </style>
 </head>
 <body>
-    <h1>Bienvenido Compañero Docente, Selecciona una Opción</h1>
+    <h1><span class="key">🗝️</span> Bienvenido Compañero Docente, Selecciona una Opción</h1>
     <div class="button-container">
         <button class="button" onclick="location.href='index5.html'">Puerta Preprimaria y Primaria</button>
         <button class="button" onclick="location.href='index3.html'">Puerta Básico</button>
@@ -133,4 +155,3 @@
     </div>
 </body>
 </html>
-
