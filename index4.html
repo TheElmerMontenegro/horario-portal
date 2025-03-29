@@ -15,31 +15,12 @@
             margin: 0;
             background: linear-gradient(135deg, #2c3e50, #1a1a1a); /* Verde oscuro y negro */
             overflow: hidden;
-            padding-top: 20px; /* Ajuste para evitar que el contenido se tape por la barra del navegador */
         }
 
         h1 {
             color: #ecf0f1;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px; /* Espacio entre el texto y la llave */
-        }
-
-        /* Animación de la llave */
-        .key {
-            font-size: 40px;
-            animation: rotateKey 2s infinite linear;
-        }
-
-        @keyframes rotateKey {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         .button-container {
@@ -108,17 +89,12 @@
             color: #ecf0f1;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
             text-align: center;
-            font-size: 1rem; /* Ajuste el tamaño de la fuente */
         }
 
         /* Ajustes para pantallas pequeñas */
         @media (max-width: 600px) {
             h1 {
                 font-size: 24px; /* Reducir tamaño de fuente en móviles */
-            }
-
-            .key {
-                font-size: 30px; /* Reducir el tamaño de la llave en móviles */
             }
 
             .button {
@@ -131,16 +107,45 @@
                 flex-direction: column; /* Asegura que los botones estén en una columna */
                 gap: 15px;
             }
-
-            .info {
-                font-size: 0.9rem; /* Reducir el tamaño del texto del objetivo en móviles */
-                padding: 10px;
-            }
         }
+
+        .letrero {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff00ff;
+    margin-bottom: 20px;
+    text-shadow: 
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+    animation: parpadeo 1.2s infinite alternate;
+    text-align: center;
+}
+
+@keyframes parpadeo {
+    0% {
+        opacity: 1;
+        text-shadow: 
+            0 0 5px #ff00ff,
+            0 0 10px #ff00ff,
+            0 0 20px #ff00ff,
+            0 0 40px #ff00ff;
+    }
+    100% {
+        opacity: 0.1;
+        text-shadow: none;
+    }
+}
+
     </style>
 </head>
 <body>
-    <h1><span class="key">🗝️</span> Bienvenido Compañero Docente. Seleccione una Opción</h1>
+    <h1>Bienvenido Compañero Docente, Selecciona una Opción</h1>
+    <div class="letrero">
+    Fechas Actualizadas para el Mes de Abril
+     </div>
+
     <div class="button-container">
         <button class="button" onclick="location.href='index5.html'">Puerta Preprimaria y Primaria</button>
         <button class="button" onclick="location.href='index3.html'">Puerta Básico</button>
