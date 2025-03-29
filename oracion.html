@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: white; /* Fondo blanco */
-            color: black; /* Texto en color negro */
+            background-color: white;
+            color: black;
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,7 +18,7 @@
             flex-direction: column;
         }
         .container {
-            background-color: #f5f5f5; /* Fondo ligeramente gris */
+            background-color: #f5f5f5;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -28,7 +28,7 @@
         }
         h1 {
             font-size: 1.5rem;
-            color: black; /* Título en negro */
+            color: black;
             margin-bottom: 20px;
         }
         label {
@@ -65,7 +65,7 @@
         }
         .credits {
             font-size: 0.8rem;
-            color: #a1a1a1; /* Gris para los créditos */
+            color: #a1a1a1;
             margin-top: 20px;
         }
     </style>
@@ -75,8 +75,8 @@
         <h1>Oración 🙏🏼 Jornada Vespertina</h1>
         <label for="date">Selecciona una fecha:</label>
         <input type="date" id="date" />
-        <button onclick="getTeacher()">Consultar</button> <!-- Botón de consulta -->
-        <button onclick="window.location.href = 'index2.html';">Regresar</button> <!-- Botón de regresar -->
+        <button onclick="getTeacher()">Consultar</button>
+        <button onclick="window.location.href = 'index2.html';">Regresar</button>
         <p id="result"></p>
     </div>
 
@@ -85,7 +85,6 @@
     </div>
 
     <script>
-        // Horario de maestros por fecha
         const schedule = {
             "2025-01-20": "Fabiola Herrera",
             "2025-01-21": "Alejandra Barillas",
@@ -133,7 +132,7 @@
             "2025-03-20": "Aralí Say",
             "2025-03-21": "Elmer Montenegro",
             "2025-03-24": "Fabiola Herrera",
-            "2025-03-25": "Alejandra Barillas"
+            "2025-03-25": "Alejandra Barillas",
             "2025-04-01": "Aralí",
             "2025-04-02": "Fabiola",
             "2025-04-03": "Alejandra",
@@ -158,10 +157,15 @@
             "2025-04-30": "Mayra"
         };
 
-        // Función para consultar el nombre del docente según la fecha seleccionada
         function getTeacher() {
-            const date = document.getElementById("date").value;
-            const teacher = schedule[date];
+            const input = document.getElementById("date");
+            const dateObj = new Date(input.value);
+            const year = dateObj.getFullYear();
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+
+            const teacher = schedule[formattedDate];
             const resultElement = document.getElementById("result");
 
             if (teacher) {
